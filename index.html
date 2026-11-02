@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to A/B test App Store and Google Play screenshots (with the stores' own free tools)</title>
+<meta name="description" content="A practical guide to testing store screenshots with Apple's Product Page Optimization and Google Play's store listing experiments: what to test, how long to run it, and how to read the result.">
+<meta name="author" content="Intenseloop Team">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; line-height: 1.6; color: #1f2328; background: #fff; }
+  h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 8px; }
+  h2 { font-size: 1.3rem; margin-top: 36px; }
+  .meta { color: #59636e; font-size: .95rem; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: .95rem; }
+  th, td { border: 1px solid #d1d9e0; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; }
+  .note { background: #f6f8fa; border-left: 4px solid #1a7f37; padding: 12px 16px; border-radius: 6px; }
+  a { color: #0969da; }
+  footer { margin-top: 48px; color: #59636e; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>How to A/B test App Store and Google Play screenshots</h1>
+<p class="meta">Using the stores' own free tools · by Intenseloop Team</p>
+
+<p>Both stores let you test screenshots on real visitors for free. Apple calls it <strong>Product Page Optimization</strong> (in App Store Connect) and Google calls it <strong>store listing experiments</strong> (in the Play Console). Few small teams use them, mostly because the setup looks heavier than it is. This page covers what to test, how to set each one up, and how to avoid reading noise as a win.</p>
+
+<h2>Side by side</h2>
+<table>
+  <tr><th></th><th>App Store: Product Page Optimization</th><th>Google Play: store listing experiments</th></tr>
+  <tr><td>What you can test</td><td>Screenshots, app preview videos, app icon</td><td>Screenshots, feature graphic, app icon; descriptions in localized experiments</td></tr>
+  <tr><td>Variants</td><td>Up to 3 treatments against the original</td><td>A small number of variants against the current listing</td></tr>
+  <tr><td>Review</td><td>Treatments go through App Review first (no new build needed unless you test icons)</td><td>No separate review step for the experiment</td></tr>
+  <tr><td>Traffic</td><td>You pick the share of visitors; it's split evenly across treatments</td><td>You pick the experiment audience share; split evenly across variants</td></tr>
+  <tr><td>Max length</td><td>90 days</td><td>Stops on its own after 6 months</td></tr>
+  <tr><td>Running at once</td><td>One test per app</td><td>One default graphics experiment, or up to five localized ones</td></tr>
+  <tr><td>Where results live</td><td>App Analytics in App Store Connect</td><td>Store listings → Experiments in the Play Console</td></tr>
+</table>
+<p>Limits change from time to time, so check the console when you set one up.</p>
+
+<h2>What to test first</h2>
+<p>Test the thing most visitors actually see. On both stores that's the first two or three screenshots, because most people never swipe further. Good first tests, roughly in order of impact:</p>
+<ol>
+  <li><strong>The first caption.</strong> Same screenshot, different headline: a feature ("Track every expense") against an outcome ("Know where your money goes").</li>
+  <li><strong>The first screen shown.</strong> Your main screen against your best result screen.</li>
+  <li><strong>Style.</strong> Plain device frames against a bold colored background, or light against dark.</li>
+  <li><strong>Order.</strong> Move slide 3 to slot 1.</li>
+  <li><strong>Video or no video</strong> (App Store). An autoplaying preview isn't always a win, so it's worth checking.</li>
+</ol>
+<p>Change one thing per treatment. If the new set has a new caption, a new color and a new order, a win tells you nothing you can reuse.</p>
+
+<h2>Setting up on the App Store</h2>
+<ol>
+  <li>In App Store Connect, open your app and go to <em>Product Page Optimization</em>, then create a test.</li>
+  <li>Name it after the question ("Outcome caption vs feature caption"), choose how many treatments, and set the traffic share. A higher share gets results sooner.</li>
+  <li>Pick the localizations to include. Testing only your biggest market keeps things simple.</li>
+  <li>Upload the treatment screenshots for each device size you support. Sizes and rules are the same as for your normal listing.</li>
+  <li>Submit the treatments for review. Once approved, start the test. A running test can't be edited, so double-check before starting.</li>
+</ol>
+
+<h2>Setting up on Google Play</h2>
+<ol>
+  <li>In the Play Console, go to <em>Grow users → Store presence → Store listings</em>, open the Experiments tab and create an experiment.</li>
+  <li>Choose a default graphics experiment (your default language) or a localized one (up to five languages).</li>
+  <li>Pick the target metric. Installs from new users are the usual choice for screenshot tests.</li>
+  <li>Keep the default confidence level and minimum detectable effect unless you have lots of traffic. The built-in estimate tells you how long it will take.</li>
+  <li>Upload the variant screenshots (2–8 phone screenshots, same rules as your listing) and start.</li>
+</ol>
+
+<h2>Reading the result honestly</h2>
+<ul>
+  <li><strong>Wait for confidence.</strong> Apple suggests waiting until a treatment reaches at least 90% confidence. Google shows "More data needed" until it's sure.</li>
+  <li><strong>Run full weeks.</strong> Weekend visitors behave differently. Stop on the same weekday you started.</li>
+  <li><strong>Don't stack changes.</strong> A new release, a feature, or an ad campaign during the test can swamp the effect.</li>
+  <li><strong>A draw is an answer.</strong> It means the change doesn't matter much. Keep the cheaper or clearer version and test something bigger.</li>
+  <li><strong>Write it down.</strong> Keep a short log: date, hypothesis, variants, result. After five tests you'll know what your audience responds to.</li>
+</ul>
+<div class="note">Low traffic? If your listing gets a few hundred visitors a week, tests may take months. Test only big differences (a new first slide, not a new shade of blue), give the treatment more traffic, and limit it to one market.</div>
+
+<h2>After a winner</h2>
+<p>Apply the winning treatment from the console, then copy the lesson to your other device sizes and languages. Apple ends the test as soon as you apply a treatment, and Google returns traffic to the current listing when an experiment stops, so apply the winner on purpose rather than letting the test time out.</p>
+
+<h2>Making variants without a designer</h2>
+<p>The slow part of testing is usually making the extra sets. Keep your screenshots in an editable project so a variant is a caption change and an export, not a new design job. <a href="https://appscreen.pro">AppScreen</a> is a free browser tool for App Store and Google Play screenshots that works this way: change one caption or background, export the variant, and change it back.</p>
+
+<footer>Written by Intenseloop Team. Published November 2026. Store limits checked against Apple's and Google's documentation at the time of writing.</footer>
+</body>
+</html>
